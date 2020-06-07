@@ -1,3 +1,11 @@
-export const up = async () => { };
+import Knex from 'knex';
 
-export const down = async () => { };
+export const up = async (knex: Knex) => {
+  return knex.schema.createTable('items', (table) => {
+    table.increments('id').primary();
+    table.string('image').notNullable();
+    table.string('title').notNullable();
+  });
+};
+
+export const down = async (knex: Knex) => knex.schema.dropTable('items');

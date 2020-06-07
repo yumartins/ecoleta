@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "develop": "ts-node-dev src/index.ts"
+    "develop": "ts-node-dev src/index.ts",
+    "knex:seed": "knex --knexfile knexfile.ts seed:run",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
   "dependencies": {
     "express": "^4.17.1",
